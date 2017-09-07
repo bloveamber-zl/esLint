@@ -42,7 +42,6 @@ module.exports = {
     curly: 'error',
   },
 };
-
 ```
 
 * 注释文件
@@ -50,7 +49,6 @@ module.exports = {
 ```
 /* eslint eqeqeq: "off", curly: "error" */
 /* eslint eqeqeq: 0, curly: 2 */
-
 ```
 
 也可以在注释中关闭所有或者某个规则：
@@ -67,9 +65,9 @@ module.exports = {
 
 在ESlint规则列表页面，我们发现有些规则的旁边会带有一个**橙色扳手图标**，表示在执行`eslint`命令时指定`--fix`参数可以**自动修复**该问题。
 
+```
+eslint [object] --
+```
+
 我们可以利用这个特性来自动格式化项目代码，这样就可以保证代码书写风格的统一。
-
-
-
-
 
