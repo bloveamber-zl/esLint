@@ -15,10 +15,61 @@ npm install eslint -g
 安装完毕后，接下来新建一个配置文件`.eslintrc.js`，或者使用如下的命令行来自动生成。
 
 ```
-
 eslint --init
-
 ```
 
 如果项目根目录下没有 `package.json` 文件，它会提示你先使用 `npm init` 来初始化一个 `package.json` 文件。
+
+## 规则
+
+在配置文件中可以设置一些规则。
+
+这些规则的等级有三种：
+
+* "off" 或者 0：关闭规则。
+* "warn" 或者 1：打开规则，并且作为一个警告（不影响exit code）。
+* "error" 或者 2：打开规则，并且作为一个错误（exit code将会是1）。
+
+例如：
+
+* js 文件
+
+```
+// .eslintrc.js
+module.exports = {
+  rules: {
+    eqeqeq: 'off',
+    curly: 'error',
+  },
+};
+
+```
+
+* 注释文件
+
+```
+/* eslint eqeqeq: "off", curly: "error" */
+/* eslint eqeqeq: 0, curly: 2 */
+
+```
+
+也可以在注释中关闭所有或者某个规则：
+
+```
+/* eslint-disable */
+/* eslint-enable */
+
+/* eslint-disable no-alert, no-console */
+/* eslint-enable no-alert, no-console */
+```
+
+## 代码格式化
+
+在ESlint规则列表页面，我们发现有些规则的旁边会带有一个**橙色扳手图标**，表示在执行`eslint`命令时指定`--fix`参数可以**自动修复**该问题。
+
+我们可以利用这个特性来自动格式化项目代码，这样就可以保证代码书写风格的统一。
+
+
+
+
 
