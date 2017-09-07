@@ -12,10 +12,12 @@ npm install eslint -g
 
 ## 用法
 
-如果你首次使用 ESLint，那么你需要先设置一个配置文件，你可以在项目根目录下使用 `--init` 选项来生成:
+安装完毕后，接下来新建一个配置文件`.eslintrc.js`，或者使用如下的命令行来自动生成。
 
 ```
+
 eslint --init
+
 ```
 
 如果项目根目录下没有 `package.json` 文件，它会提示你先使用 `npm init` 来初始化一个 `package.json` 文件。
