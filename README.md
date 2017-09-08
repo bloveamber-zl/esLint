@@ -79,7 +79,6 @@ module.exports = {
     ✖ 5 problems (5 errors, 0 warnings)
       4 errors, 0 warnings potentially fixable with the `--fix` option.
 
-
 错误信息提示的还是很详细的。
 
 Strings must use singlequote ：字符串必须使用单引号
@@ -88,7 +87,7 @@ Expected indentation of 4 spaces but found 1 tab： 本应该是1个空格缩进
 
 Extra semicolon ： 存在不必要的分号
 
- Unexpected console statement ： 不允许使用console
+Unexpected console statement ： 不允许使用console
 
 针对第4条提示，我们可以禁用`no-console`规则。将配置文件`.eslintrc.js`改为这样：
 
@@ -99,6 +98,14 @@ rules": {
         ]
 }
 ```
+
+在配置文件中可以设置一些规则。
+
+这些规则的等级有三种：
+
+* "off" 或者 0：关闭规则。
+* "warn" 或者 1：打开规则，并且作为一个警告（不影响exit code）。
+* "error" 或者 2：打开规则，并且作为一个错误（exit code将会是1）。
 
 ## 规则
 
