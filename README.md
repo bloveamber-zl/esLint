@@ -83,7 +83,7 @@ module.exports = {
 
 Strings must use singlequote ：字符串必须使用单引号
 
-Expected indentation of 4 spaces but found 1 tab： 本应该是1个空格缩进，现在是4个
+Expected indentation of 4 spaces but found 1 tab： 本应该是4个空格缩进，现在却是1个tab缩进
 
 Extra semicolon ： 存在不必要的分号
 
@@ -107,47 +107,6 @@ rules": {
 * "warn" 或者 1：打开规则，并且作为一个警告。
 * "error" 或者 2：打开规则，并且作为一个错误。
 
-## 规则
-
-在配置文件中可以设置一些规则。
-
-这些规则的等级有三种：
-
-* "off" 或者 0：关闭规则。
-* "warn" 或者 1：打开规则，并且作为一个警告（不影响exit code）。
-* "error" 或者 2：打开规则，并且作为一个错误（exit code将会是1）。
-
-例如：
-
-* js 文件
-
-```
-// .eslintrc.js
-module.exports = {
-  rules: {
-    eqeqeq: 'off',
-    curly: 'error',
-  },
-};
-```
-
-* 注释文件
-
-```
-/* eslint eqeqeq: "off", curly: "error" */
-/* eslint eqeqeq: 0, curly: 2 */
-```
-
-也可以在注释中关闭所有或者某个规则：
-
-```
-/* eslint-disable */
-/* eslint-enable */
-
-/* eslint-disable no-alert, no-console */
-/* eslint-enable no-alert, no-console */
-```
-
 ## 代码格式化
 
 在ESlint规则列表页面，我们发现有些规则的旁边会带有一个**橙色扳手图标**，表示在执行`eslint`命令时指定`--fix`参数可以**自动修复**该问题。
@@ -156,5 +115,16 @@ module.exports = {
 eslint [object] --fix
 ```
 
-我们可以利用这个特性来自动格式化项目代码，这样就可以保证代码书写风格的统一。
+我们可以利用这个特性来自动格式化项目代码，这样就可以保证代码书写风格的统一。我们现在检查一下我们之前的`demo.js`
+
+     1:12  error  Strings must use singlequote                  quotes
+      3:1   error  Expected indentation of 4 spaces but found 2  indent
+      3:6   error  Extra semicolon                               semi
+      5:17  error  Extra semicolon                               semi
+
+    ✖ 4 problems (4 errors, 0 warnings)
+      4 errors, 0 warnings potentially fixable with the `--fix` option.
+
+
+
 
