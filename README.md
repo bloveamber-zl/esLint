@@ -17,7 +17,7 @@ npm install eslint -g
 ```
 var a=10,b="haomo"
 for(var i=0;i<5;i++){
-	a++;
+    a++;
 }
 console.log(a,b);
 ```
@@ -30,15 +30,75 @@ console.log(a,b);
 $ eslint demo.js
 ```
 
-
-
-安装完毕后，接下来新建一个配置文件`.eslintrc.js`，或者使用如下的命令行来自动生成。
+可以看到，输出了错误信息。这是因为我们没有指定任何的配置。所以我们先用`eslint --init`进行配置。根据提示配置完毕会自动生成名为`.eslintrc.js`的配置文件。
 
 ```
 eslint --init
 ```
 
+配置好的`eslint --init`大致是这样的
+
+```
+module.exports = {
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ]
+    }
+};
+```
+
 如果项目根目录下没有 `package.json` 文件，它会提示你先使用 `npm init` 来初始化一个 `package.json` 文件。
+
+重新执行`eslint merge.js`可以看到输出了以下错误：
+
+      1:12  error  Strings must use singlequote                      quotes
+      3:1   error  Expected indentation of 4 spaces but found 1 tab  indent
+      3:5   error  Extra semicolon                                   semi
+      5:1   error  Unexpected console statement                      no-console
+      5:17  error  Extra semicolon                                   semi
+
+    ✖ 5 problems (5 errors, 0 warnings)
+      4 errors, 0 warnings potentially fixable with the `--fix` option.
+
+
+错误信息提示的还是很详细的。
+
+Strings must use singlequote ：字符串必须使用单引号
+
+Expected indentation of 4 spaces but found 1 tab： 本应该是1个空格缩进，现在是4个
+
+Extra semicolon ： 存在不必要的分号
+
+ Unexpected console statement ： 不允许使用console
+
+针对第4条提示，我们可以禁用`no-console`规则。将配置文件`.eslintrc.js`改为这样：
+
+```
+rules": {
+        "no-console": [
+            "off"
+        ]
+}
+```
 
 ## 规则
 
