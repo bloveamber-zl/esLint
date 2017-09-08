@@ -66,7 +66,7 @@ module.exports = {
 };
 ```
 
-如果项目根目录下没有 `package.json` 文件，它会提示你先使用 `npm init` 来初始化一个 `package.json` 文件。
+详细文档可以参考这里：[Configuring ESLint - 配置](https://www.gitbook.com/book/bloveamber-zl/eslint/edit#)
 
 重新执行`eslint merge.js`可以看到输出了以下错误：
 
@@ -115,9 +115,9 @@ rules": {
 eslint [object] --fix
 ```
 
-我们可以利用这个特性来自动格式化项目代码，这样就可以保证代码书写风格的统一。我们现在检查一下我们之前的`demo.js`
+我们现在检查一下我们之前的`demo.js`
 
-     1:12  error  Strings must use singlequote                  quotes
+      1:12  error  Strings must use singlequote                  quotes
       3:1   error  Expected indentation of 4 spaces but found 2  indent
       3:6   error  Extra semicolon                               semi
       5:17  error  Extra semicolon                               semi
@@ -125,6 +125,52 @@ eslint [object] --fix
     ✖ 4 problems (4 errors, 0 warnings)
       4 errors, 0 warnings potentially fixable with the `--fix` option.
 
+我们执行一下代码格式化
+
+```
+eslint demo.js --fix
+
+```
+
+再查看一下检查的结果发现没有任何提示，`demo.js` 变成的这样：
+
+```
+var a=10,b='haomo'
+for(var i=0;i<5;i++){
+    a++
+}
+console.log(a,b)
+```
+
+主要的变化有以下三部分：
+
+     字符串都用单引号包裹
+
+     缩进符有tab变成了空格
+
+     每一行的末尾的分号去掉
+
+我们可以利用这个特性来自动格式化项目代码，这样就可以保证代码书写风格的统一。
+
+## 例外情况
+
+尽管我们在编码时怀着**严格遵守规则**的美好愿景，而**凡事总有例外**。定立ESLint规则的初衷是为了避免自己犯错，但是我们也要避免不顾实际情况而将其搞得太过于形式化，本末倒置。
+
+ESLint提供了多种临时禁用规则的方式，比如我们可以通过一条`eslint-disable-next-line`备注来使得下一行可以跳过检查：
+
+```
+// eslint-disable-next-line
+console.log(a,b)
+```
+
+我们先把之前的`"no-console"`开启，然后再一次执行检查代码，发现还是没有任何信息返回，说明在上面的事例代码中`console.log(a,b)`不会受到检查。
+
+我们还可以根据自己的需求进行灵活的规避代码检查，详细使用方法可以参考文档：[Disabling Rules with Inline Comments - 使用行内注释禁用规则](https://www.gitbook.com/book/bloveamber-zl/eslint/edit#)
+
+## 相关链接
+
+* [ESLint使用入门](https://csspod.com/getting-started-with-eslint/)
+* [ESLinit中文版文档](http://eslint.cn/)
 
 
 
