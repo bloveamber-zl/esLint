@@ -12,6 +12,26 @@ npm install eslint -g
 
 ## 用法
 
+自己写了一个包含几行js代码的文件，保存为demo.js。
+
+```
+var a=10,b="haomo"
+for(var i=0;i<5;i++){
+	a++;
+}
+console.log(a,b);
+```
+
+然后执行`node demo.js`确保它是可以正确运行的（输出结果为`15 'haomo'`）。
+
+接着我们执行以下命令来使用ESLint检查：
+
+```
+$ eslint demo.js
+```
+
+
+
 安装完毕后，接下来新建一个配置文件`.eslintrc.js`，或者使用如下的命令行来自动生成。
 
 ```
@@ -66,7 +86,7 @@ module.exports = {
 在ESlint规则列表页面，我们发现有些规则的旁边会带有一个**橙色扳手图标**，表示在执行`eslint`命令时指定`--fix`参数可以**自动修复**该问题。
 
 ```
-eslint [object] --
+eslint [object] --fix
 ```
 
 我们可以利用这个特性来自动格式化项目代码，这样就可以保证代码书写风格的统一。
