@@ -66,7 +66,7 @@ module.exports = {
 };
 ```
 
-详细文档可以参考这里：[Configuring ESLint - 配置](https://www.gitbook.com/book/bloveamber-zl/eslint/edit#)
+详细文档可以参考这里：[Configuring ESLint - 配置](http://eslint.cn/docs/user-guide/configuring)
 
 重新执行`eslint merge.js`可以看到输出了以下错误：
 
@@ -106,7 +106,7 @@ rules": {
 * "off" 或者 0：关闭规则。
 * "warn" 或者 1：打开规则，并且作为一个警告。
 * "error" 或者 2：打开规则，并且作为一个错误。
-* 规则的详细说明文档可以参考这里：[Rules - 规则](https://www.gitbook.com/book/bloveamber-zl/eslint/edit#)
+* 规则的详细说明文档可以参考这里：[Rules - 规则](http://eslint.cn/docs/rules/)
 
 ## 代码格式化
 
@@ -167,7 +167,7 @@ console.log(a,b)
 
 我们先把之前的`"no-console"`开启，然后再一次执行检查代码，发现还是没有任何信息返回，说明在上面的事例代码中`console.log(a,b)`不会受到检查。
 
-我们还可以根据自己的需求进行灵活的规避代码检查，详细使用方法可以参考文档：[Disabling Rules with Inline Comments - 使用行内注释禁用规则](https://www.gitbook.com/book/bloveamber-zl/eslint/edit#)
+我们还可以根据自己的需求进行灵活的规避代码检查，详细使用方法可以参考文档：[Disabling Rules with Inline Comments - 使用行内注释禁用规则](http://eslint.cn/docs/user-guide/configuring#disabling-rules-with-inline-comments)
 
 ## 相关链接
 

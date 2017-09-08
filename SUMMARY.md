@@ -1,4 +1,4 @@
 # Summary
 
-* [esLint](README.md)
+* [ESLint](README.md)
 
